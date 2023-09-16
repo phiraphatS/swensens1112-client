@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+
+* {
+  font-family: 'Kanit', sans-serif !important;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -42,6 +57,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --antd-wave-shadow-color: #e21c23;
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
@@ -86,6 +102,7 @@ body {
 }
 
 body {
+  background-color: #f4f4f4;
   /* color: rgb(var(--foreground-rgb)); */
   /* background: linear-gradient(
       to bottom,
@@ -93,6 +110,64 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb)); */
+}
+
+.ant-input {
+  height: 48px;
+  /* border-width: 1px !important;
+  border-style: solid !important;
+  border-color: #d9d9d9 !important; */
+}
+
+.ant-picker-input {
+  height: 48px;
+}
+
+.ant-radio-button-wrapper {
+  margin: auto 5px;
+  padding: 8px 30px;
+  border-radius: 30px !important;
+  border: 1px solid #d9d9d9 !important;
+  width: fit-content;
+  height: fit-content;
+}
+
+.ant-radio-button-wrapper-checked {
+  color: white !important;
+  background-color: #e21c23 !important;
+}
+.ant-radio-button-wrapper-in-form-item:hover span {
+    color: black !important;
+}
+.ant-radio-button-wrapper:hover {
+    color: black !important;
+}
+
+.ant-radio-button-wrapper::after {
+  all: unset !important;
+} 
+.ant-radio-button-wrapper::before {
+  all: unset !important;
+} 
+
+.ant-radio-button-wrapper-in-form-item::after {
+  all: unset !important;
+}
+
+/* .ant-checkbox-wrapper-in-form-item {
+  display: flex !important;
+  align-items: start !important;
+  justify-content: start !important;
+} */
+
+/* .ant-form-item-control-input-content label.ant-checkbox-wrapper {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: start !important;
+} */
+
+.ant-checkbox {
+  border-radius: 25% !important;
 }
 
 a {

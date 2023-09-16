@@ -8,8 +8,10 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   return (
     <>
-      <main style={{backgroundColor: '#F2E8C6', minHeight: '100vh'}}>
-        
+      <main style={{backgroundColor: '#F2E8C6'}}>
+        <div className='title'>
+          
+        </div>
       </main>
     </>
   )

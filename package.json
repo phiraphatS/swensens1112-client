@@ -9,12 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@types/node": "20.6.0",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
+    "antd": "^5.9.1",
     "next": "13.4.19",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "sass": "^1.66.1",
     "typescript": "5.2.2"
   }
 }

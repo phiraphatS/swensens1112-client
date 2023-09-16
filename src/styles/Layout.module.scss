@@ -1,0 +1,148 @@
+$red-text : #E21C23;
+$red-black : #CB191F;
+
+.fixed_to_top {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+
+.navigation {
+  padding-left: 20px;
+  padding-right: 20px;
+  width: inherit;
+  height: 72px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.action_navigation {
+  padding: auto 10px;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  // row-gap: 1rem;
+  column-gap: 1rem;
+  // justify-content: space-between;
+}
+
+.login_button {
+  cursor: pointer;
+  padding: 15px 30px;
+  border-radius: 5rem;
+  border: none;
+  background-color: $red-text;
+  font-size: 14px;
+  color: #fff;
+  transition: 300ms ease-in-out;
+}
+
+.login_button:hover {
+  background-color: #f73238de;
+}
+
+.register_button {
+  cursor: pointer;
+  padding: 15px 30px;
+  border-radius: 5rem;
+  border: 1px solid $red-text;
+  font-size: 14px;
+  color: $red-text;
+  background-color: #fff;
+  transition: 300ms ease-in-out;
+}
+
+.register_button:hover {
+  border-color: #f73238de;
+}
+
+.address {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: inherit;
+  border: 1px solid #f3f3f3;
+  padding-left: 35px;
+  padding-right: 35px;
+  span {
+    transition: 300ms ease-in-out;
+    color: #383838;
+  }
+}
+
+.address:hover {
+  span {
+    color: $red-text;
+  }
+}
+
+.language {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: inherit;
+  border: 1px solid #f3f3f3;
+  padding-left: 18px;
+  padding-right: 18px;
+  span {
+    transition: 300ms ease-in-out;
+    color: #383838;
+  }
+}
+
+.language:hover {
+  span {
+    color: $red-text;
+  }
+}
+
+.footer {
+  // min-height: 100px;
+  width: 100%;
+}
+
+.foot_first_row {
+  background-color: $red-text;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: inherit;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: large;
+
+  a {
+    color: #fff;
+    text-decoration: unset;
+    transition: 300ms ease-in-out;
+  }
+
+  a:hover {
+    color: #ffffffc5;
+  }
+}
+
+.foot_second_row {
+  background-color: $red-black;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: inherit;
+  height: 57px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  a {
+    color: #fff;
+    text-decoration: unset;
+    transition: 300ms ease-in-out;
+  }
+
+  a:hover {
+    color: #ffffffc5;
+  }
+}
