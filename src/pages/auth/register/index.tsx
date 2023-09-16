@@ -4,8 +4,9 @@
 
 import React, { useState } from 'react'
 import styles from '@/styles/Page.module.scss'
-import { Button, Checkbox, Col, DatePicker, Form, Input, Radio, Row, Space } from 'antd'
+import { Button, Checkbox, Col, DatePicker, Form, Input, Radio, Row, Space, message } from 'antd'
 import { error } from 'console'
+import { userService } from '@/_services/user.service'
 
 export default function Register() {
   const [form] = Form.useForm() // Starting use ant-design
@@ -13,8 +14,16 @@ export default function Register() {
   const watchRule1 = Form.useWatch('acception_rule1', form)
   const watchRule2 = Form.useWatch('acception_rule2', form)
 
-  const handleSubmit = (event: any) => {
-    console.log(event);
+  const handleSubmit = (formVal: any) => {
+    userService.register(formVal).then((res) => {
+      if(res.status === true) {
+        console.log(res.message);
+      } else {
+        message.open({ content: res.message, type: 'error'})
+      }
+    }).catch((error) => {
+      message.open({ content: error.message, type: 'error'})
+    })
     
   }
 
@@ -189,7 +198,7 @@ export default function Register() {
                 htmlType='submit' 
                 className={styles.btn_submit}
                 style={{width: '100%', height: '48px'}}
-                disabled={!(watchRule1 == true && watchRule2 == true)}
+                disabled={!watchRule1}
                 >
                   สมัครสมาชิก
                 </Button>
