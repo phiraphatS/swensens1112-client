@@ -27,9 +27,9 @@ export default function Home() {
       if (res.status == true) {
         setMenuList([
           { label: <Text onClick={() => getProduct(0)}>ทั้งหมด</Text>, key: 'all' },
-          ...res.results.map((item: any) => ({
+          ...res.results.map((item: any, index: number) => ({
             label: <Text onClick={() => getProduct(item.id)}>{item.title_th}</Text>,
-            key: item.title_en
+            key: item.id
           }))
         ])
 
@@ -90,7 +90,7 @@ export default function Home() {
                         const img = getBase64Image(sub.file_blob, sub.file_type)
                         return (
                           <>
-                            <Col lg={8} md={12} sm={16} xs={20} key={subi}>
+                            <Col lg={8} md={12} sm={16} xs={20} key={`${subi}-${i}`}>
                               <Card
                                 actions={[
                                   <HeartOutlined key="edit" />,

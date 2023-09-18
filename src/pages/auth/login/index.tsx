@@ -9,15 +9,15 @@ export default function Login() {
   const [form] = Form.useForm()
   const router = useRouter()
 
+  useEffect(() => {
+    const userValue = userService.currentUserValue;
+    if (userValue) {
+      router.push('/')
+    }
+  }, [])
+
   const handleSubmit = (formVal: any) => {
     const { email, password } = formVal
-
-    useEffect(() => {
-      const userValue = userService.currentUserValue;
-      if (userValue) {
-        router.push('/')
-      }
-    }, [])
 
     userService.logIn({ email: email, password: password }).then((res) => {
       if (res.status === true) {

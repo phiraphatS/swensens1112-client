@@ -166,7 +166,7 @@ export default function Admin() {
                   const img = getBase64Image(sub.file_blob, sub.file_type)
                   return (
                     <>
-                      <Col lg={8} md={12} sm={16} xs={20} key={subi}>
+                      <Col lg={8} md={12} sm={16} xs={20} key={`${subi}-${i}`}>
                         <Card
                           actions={[
                             <EditOutlined key="edit" />,
