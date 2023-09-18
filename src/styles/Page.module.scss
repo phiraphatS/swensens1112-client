@@ -91,3 +91,30 @@
     // }
   }
 }
+
+
+.home_page {
+  // background-color: #F2E8C6;
+
+  .title {
+    height: 33vw;
+    width: 100%;
+    background-image: url('../_files/sw-banner.jpg');
+    background-size: cover;
+  }
+
+  .menulist {
+    // display: flex;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: white;
+    width: 100%;
+    // flex-direction: row;
+    // align-items: center;
+    // justify-content: center;
+
+    // ul {
+    //   flex: 1;
+    // }
+  }
+}

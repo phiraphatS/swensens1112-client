@@ -59,6 +59,22 @@ $red-black : #CB191F;
   border-color: #f73238de;
 }
 
+.qrcode_button {
+  cursor: pointer;
+  padding: 8px 30px;
+  border-radius: 5rem;
+  border: 1px solid $red-text;
+  font-size: 14px;
+  color: $red-text;
+  background-color: #fff;
+  transition: 300ms ease-in-out;
+  border-color: #f73238de;
+}
+
+// .qrcode_button:hover {
+//   border-color: #f73238de;
+// }
+
 .address {
   cursor: pointer;
   display: flex;
@@ -90,6 +106,20 @@ $red-black : #CB191F;
   span {
     transition: 300ms ease-in-out;
     color: #383838;
+  }
+}
+
+.menu_icon {
+  // cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: inherit;
+  border: 1px solid #f3f3f3;
+  padding-left: 18px;
+  padding-right: 18px;
+  span {
+    transition: 300ms ease-in-out;
+    color: #585858;
   }
 }
 

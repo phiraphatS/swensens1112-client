@@ -7,24 +7,36 @@ import styles from '@/styles/Page.module.scss'
 import { Button, Checkbox, Col, DatePicker, Form, Input, Radio, Row, Space, message } from 'antd'
 import { error } from 'console'
 import { userService } from '@/_services/user.service'
+import { useRouter } from 'next/router'
 
 export default function Register() {
+  const router = useRouter()
   const [form] = Form.useForm() // Starting use ant-design
-  const watchEmail = Form.useWatch('email', form)
   const watchRule1 = Form.useWatch('acception_rule1', form)
-  const watchRule2 = Form.useWatch('acception_rule2', form)
 
   const handleSubmit = (formVal: any) => {
     userService.register(formVal).then((res) => {
       if(res.status === true) {
-        console.log(res.message);
+        const { email, password } = formVal
+        logIn(email, password)
       } else {
         message.open({ content: res.message, type: 'error'})
       }
     }).catch((error) => {
       message.open({ content: error.message, type: 'error'})
     })
-    
+  }
+
+  const logIn = (email: string, password: string) => {
+    userService.logIn({ email: email, password: password }).then((res) => {
+      if(res.status === true) {
+        router.push('/')
+      } else {
+        message.open({ content: res.message, type: 'error'})
+      }
+    }).catch((error) => {
+      message.open({ content: error.message, type: 'error'})
+    })
   }
 
   return (
@@ -46,7 +58,7 @@ export default function Register() {
               <Row gutter={[16, 16]}>
                 <Col span={12}>
                   <Form.Item
-                    name='first_name'
+                    name='firstname'
                     label='ชื่อ'
                     rules={[
                       ({ getFieldValue }) => ({
@@ -197,7 +209,7 @@ export default function Register() {
                 type='primary' 
                 htmlType='submit' 
                 className={styles.btn_submit}
-                style={{width: '100%', height: '48px'}}
+                style={{width: '100%', height: '48px', borderRadius: '25px' }}
                 disabled={!watchRule1}
                 >
                   สมัครสมาชิก

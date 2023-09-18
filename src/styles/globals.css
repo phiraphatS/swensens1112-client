@@ -154,6 +154,10 @@ body {
   all: unset !important;
 }
 
+.ant-drawer-body {
+  padding: 0px !important;
+}
+
 /* .ant-checkbox-wrapper-in-form-item {
   display: flex !important;
   align-items: start !important;
@@ -169,6 +173,28 @@ body {
 .ant-checkbox {
   border-radius: 25% !important;
 }
+
+.ant-menu-item-active {
+  color: #e21c23 !important;
+}
+
+.ant-menu-item-selected {
+  color: #e21c23 !important;
+}
+
+.ant-menu-light.ant-menu-horizontal >.ant-menu-item-selected::after{
+  /* width: 24px !important;
+  border-bottom-width: 4px !important; */
+  border-bottom-color: #e21c23 !important;
+}
+
+.ant-menu-light.ant-menu-horizontal >.ant-menu-item-active:not(.ant-menu-item-selected)::after{
+  all: unset !important;
+}
+
+/* .ant-card-body {
+  padding: 0px !important;
+} */
 
 a {
   color: inherit;
