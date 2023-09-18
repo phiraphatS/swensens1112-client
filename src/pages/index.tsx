@@ -16,7 +16,7 @@ interface adminContentInterface {
   product_list: any[]
 }
 
-const { Title } = Typography
+const { Title, Text } = Typography
 export default function Home() {
   const [menuList, setMenuList] = useState<ItemType<MenuItemType>[]>([])
   const [content, setContent] = useState<adminContentInterface[]>([])
@@ -26,9 +26,9 @@ export default function Home() {
     const res = productService.getCategory().then((res) => {
       if (res.status == true) {
         setMenuList([
-          { label: 'ทั้งหมด', key: 'all' },
+          { label: <Text onClick={() => getProduct(0)}>ทั้งหมด</Text>, key: 'all' },
           ...res.results.map((item: any) => ({
-            label: item.title_th,
+            label: <Text onClick={() => getProduct(item.id)}>{item.title_th}</Text>,
             key: item.title_en
           }))
         ])
@@ -41,9 +41,9 @@ export default function Home() {
   }, [])
 
 
-  const getProduct = () => {
+  const getProduct = (cate_id: number | undefined = 0) => {
     setLoading(true)
-    const resProduct = productService.getProduct(0).then((res) => {
+    const resProduct = productService.getProduct(cate_id).then((res) => {
       if (res.status == true) {
         setContent(res.results)
       } else {
