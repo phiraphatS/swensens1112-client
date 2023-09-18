@@ -2,7 +2,7 @@
 // Don't have to care that I manual custom style in project before this page *********************
 
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '@/styles/Page.module.scss'
 import { Button, Checkbox, Col, DatePicker, Form, Input, Radio, Row, Space, message } from 'antd'
 import { error } from 'console'
@@ -13,6 +13,13 @@ export default function Register() {
   const router = useRouter()
   const [form] = Form.useForm() // Starting use ant-design
   const watchRule1 = Form.useWatch('acception_rule1', form)
+  
+  useEffect(() => {
+    const userValue = userService.currentUserValue;
+    if (userValue) {
+      router.push('/')
+    }
+  }, [])
 
   const handleSubmit = (formVal: any) => {
     userService.register(formVal).then((res) => {

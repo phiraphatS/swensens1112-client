@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from '@/styles/Page.module.scss'
 import { Form, Space, Row, Col, Input, Radio, DatePicker, Checkbox, Button, message } from 'antd'
 import form from 'antd/es/form'
@@ -11,19 +11,26 @@ export default function Login() {
 
   const handleSubmit = (formVal: any) => {
     const { email, password } = formVal
-    
+
+    useEffect(() => {
+      const userValue = userService.currentUserValue;
+      if (userValue) {
+        router.push('/')
+      }
+    }, [])
+
     userService.logIn({ email: email, password: password }).then((res) => {
-      if(res.status === true) {
+      if (res.status === true) {
         window.location.href = '/'
       } else {
-        message.open({ content: res.message, type: 'error'})
+        message.open({ content: res.message, type: 'error' })
       }
     }).catch((error) => {
-      message.open({ content: error.message, type: 'error'})
+      message.open({ content: error.message, type: 'error' })
     })
   }
   return (
-    
+
     <div className={styles.register_content}>
       <div className={styles.card}>
         <div className={styles.header}>
@@ -32,11 +39,11 @@ export default function Login() {
         </div>
 
         <div className={styles.form}>
-          <Form 
-          form={form} 
-          onFinish={handleSubmit}
-          layout='vertical' 
-          autoComplete='false'
+          <Form
+            form={form}
+            onFinish={handleSubmit}
+            layout='vertical'
+            autoComplete='false'
           >
             <Space direction='vertical' style={{ width: '100%' }}>
               <Form.Item name='email' label='อีเมล'
@@ -55,32 +62,32 @@ export default function Login() {
               </Form.Item>
 
               <span>
-              <Form.Item name='password' label='รหัสผ่าน'
-                rules={[
-                  ({ getFieldValue }) => ({
-                    validator(_, value) {
-                      if (value && value.length >= 8) {
-                        return Promise.resolve()
-                      } else {
-                        return Promise.reject('ตั้งรหัสผ่านอย่างน้อย 8 ตัว')
-                      }
-                    },
-                  })
-                ]}>
-                <Input.Password placeholder='กรอกรหัสผ่าน' maxLength={255} />
-              </Form.Item>
-              
-              <Row justify='end'>
-                <a href="#" style={{ color: '#e21c23' }}>ลืมรหัสผ่าน</a>
-              </Row>
+                <Form.Item name='password' label='รหัสผ่าน'
+                  rules={[
+                    ({ getFieldValue }) => ({
+                      validator(_, value) {
+                        if (value && value.length >= 8) {
+                          return Promise.resolve()
+                        } else {
+                          return Promise.reject('ตั้งรหัสผ่านอย่างน้อย 8 ตัว')
+                        }
+                      },
+                    })
+                  ]}>
+                  <Input.Password placeholder='กรอกรหัสผ่าน' maxLength={255} />
+                </Form.Item>
+
+                <Row justify='end'>
+                  <a href="#" style={{ color: '#e21c23' }}>ลืมรหัสผ่าน</a>
+                </Row>
               </span>
 
               <Form.Item>
-                <Button 
-                type='primary' 
-                htmlType='submit' 
-                className={styles.btn_submit}
-                style={{width: '100%', height: '48px', borderRadius: '25px'}}
+                <Button
+                  type='primary'
+                  htmlType='submit'
+                  className={styles.btn_submit}
+                  style={{ width: '100%', height: '48px', borderRadius: '25px' }}
                 >
                   เข้าสู่ระบบ
                 </Button>
