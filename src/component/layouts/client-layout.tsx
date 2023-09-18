@@ -104,7 +104,7 @@ export default function ClientLayoutComponent({ children }: { children: React.Re
 
       <div className={styles.fixed_to_top}>
         <div className={styles.navigation}>
-          <Image src={Logo} alt='logo' style={{ cursor: 'pointer' }} />
+          <Image src={Logo} alt='logo' style={{ cursor: 'pointer' }} onClick={() => router.push('/')}/>
           <div className={styles.action_navigation}>
             <div className={styles.address}>
               <FontAwesomeIcon icon={faLocationDot} />
